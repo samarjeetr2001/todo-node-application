@@ -1,24 +1,24 @@
 
-exports.getTasks = (req, res, next) => {
+export function getTasks(req, res, next) {
     res.send('Tasks Page');
-};
+}
 
-exports.getAddTask = (req, res, next) => {
+export function getAddTask(req, res, next) {
     res.send('Get Add Task Page');
-};
+}
 
-exports.postAddTask = (req, res, next) => {
+export function postAddTask(req, res, next) {
     res.send('Post Add Task Page');
-};
+}
 
-exports.getEditTask = (req, res, next) => {
+export function getEditTask(req, res, next) {
     res.send('Get Edit Task Page');
-};
+}
 
-exports.postEditTask = (req, res, next) => {
+export function postEditTask(req, res, next) {
     res.send('Post Edit Task Page');
-};
+}
 
-exports.postTaskCompleted = (req, res, next) => {
+export function postTaskCompleted(req, res, next) {
     res.send('Post Task completed');
-};
+}
