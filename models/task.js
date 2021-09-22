@@ -7,7 +7,7 @@ const filePath = path.join(
     'task.json'
 );
 
-export default class Task {
+module.exports = class Task {
     constructor(title, description, imageURL) {
         this.title = title;
         this.imageURL = imageURL;
