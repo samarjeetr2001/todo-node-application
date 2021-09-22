@@ -15,4 +15,6 @@ router.get('/edit-task/:taskId', taskController.getEditTask);
 
 router.post('/edit-task/:taskId', taskController.postEditTask);
 
+router.post('/mask-as-completed', taskController.postTaskCompleted);
+
 module.exports = router;
