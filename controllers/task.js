@@ -2,7 +2,7 @@ const Task = require('../models/task');
 
 
 exports.getTasks = (req, res, next) => {
-    Task.getTasks(tasks => res.render('index', { pageTitle: 'Home' }));
+    Task.getTasks(tasks => res.render('index', { pageTitle: 'Home', tasks: tasks }));
 };
 
 exports.getAddTask = (req, res, next) => {
@@ -51,4 +51,15 @@ exports.postTaskCompleted = (req, res, next) => {
     Task.markAsCompleted(id, () => {
         res.redirect('/');
     });
+};
+
+exports.postTaskNotCompleted = (req, res, next) => {
+    const id = req.body.id;
+    Task.markAsCompleted(id, () => {
+        res.redirect('/');
+    });
+};
+
+exports.getCompletedTask = (req, res, next) => {
+    Task.getTasks(tasks => res.render('completed-task', { pageTitle: 'Completed Task', tasks: tasks }));
 };

@@ -15,6 +15,10 @@ router.get('/edit-task/:taskId', taskController.getEditTask);
 
 router.post('/edit-task/:taskId', taskController.postEditTask);
 
-router.post('/mask-as-completed', taskController.postTaskCompleted);
+router.post('/mark-as-completed', taskController.postTaskCompleted);
+
+router.get('/completed-task', taskController.getCompletedTask);
+
+router.post('/mark-as-not-completed', taskController.postTaskNotCompleted);
 
 module.exports = router;

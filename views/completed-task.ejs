@@ -4,27 +4,25 @@
     <body>
         <%- include('includes/nav.ejs');%>
 
-            <h1>Tasks</h1>
+            <h1>Completed Tasks</h1>
             <br><br>
             <%if(tasks.length>0){%>
                 <%for(let task of tasks) {%>
-                    <%if(!task.isCompleted){%>
+                    <%if(task.isCompleted){%>
                         <%if(task.imageURL !=="" ){%>
                             <img src="<%=task.imageURL%>" alt="Image" width="100"><br>
                             <%}%>
                                 Title : <%=task.title%> <br>
                                     Description : <%=task.description%><br>
-                                        <form action="/mark-as-completed" method="POST">
+                                        <form action="/mark-as-not-completed" method="POST">
                                             <input type="hidden" name="id" value="<%=task.id%>">
-                                            <button type="submit">Mark as Completed</button><br>
-                                        </form>
-                                        <a href="/edit-task/<%=task.id%>?edit=true"> Edit</a><br>
+                                            <button type="submit">Mark as Not completed</button><br>
                                         </form>
                                         ------------------------------------------- <br>
                                         <%}%>
                                             <%}%>
                                                 <%} else { %>
-                                                    <h2>No Task added
+                                                    <h2>No Task Completed
                                                     </h2>
                                                     <%}%>
                                                         <%- include('includes/end.ejs')%>

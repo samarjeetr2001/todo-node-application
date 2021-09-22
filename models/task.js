@@ -13,7 +13,6 @@ const readTaskFile = (cb) => {
         if (!err) {
             tasks = JSON.parse(data);
         }
-        console.log('Task Model: read data completed : ', tasks);
         cb(tasks);
     });
 }
@@ -66,7 +65,7 @@ module.exports = class Task {
         readTaskFile(tasks => {
             const updatedTasks = [...tasks];
             const taskIndex = updatedTasks.findIndex(_task => _task.id === id);
-            updatedTasks[taskIndex].isCompleted = true;
+            updatedTasks[taskIndex].isCompleted = !updatedTasks[taskIndex].isCompleted;
             fs.writeFile(filePath, JSON.stringify(updatedTasks), err => {
                 console.log('Error in mask task as completed : task model:  ', err);
             });
